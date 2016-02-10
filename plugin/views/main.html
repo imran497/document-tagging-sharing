@@ -1,0 +1,15 @@
+<div ng-init="init()" class="main-wrapper">
+    <span ng-if="parsedSearchResults.records !== undefined" class="cart-wrap">
+        <i ng-click="showCartDoc();" style="cursor:pointer;float:right;"class="material-icons shop-docs">shopping_cart</i>
+    </span>
+    <span class="cart-counter" ng-if="cartItems != 0 && parsedSearchResults.records !== undefined">{{cartItems}}</span>
+
+    <form class="center-block" >
+        <custominput id="xyz" ng-model="query" onsearch="startSearch" inputstyle="inputClass"
+        		store-query-on-local-storage="storeQueryOnLocalStorage()">
+            <autocomplete source="loadItems" ng-show="showAutoSuggest"></autocomplete>
+        </custominput>
+    </form>
+    <div ng-include src="'views/search-results.html'" >
+    </div>
+</div>

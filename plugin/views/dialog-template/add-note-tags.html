@@ -1,0 +1,30 @@
+<md-dialog aria-label="Documents Cart" ng-cloak flex="50">
+<div id="toast-container-popup"></div>
+<md-toolbar>
+  <div class="md-toolbar-tools">
+      <h2>Add Note/Tags:</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="closeDialog()">
+         <i class="dialog-close material-icons">clear</i>
+      </md-button>
+  </div>
+</md-toolbar>
+  <md-divider></md-divider>
+  <md-content layout-padding>
+    <md-input-container  class="md-block">
+      <label>Notes</label>
+      <textarea columns="12" rows="5" ng-model="result.note" placeholder="Add Notes For Document"></textarea>
+    </md-input-container>
+  
+    <label>Tags(Add comma seprated values e.g tag1,tag2)</label>
+    <md-chips ng-model="result.tags"
+    placeholder="Enter a tag"
+    md-separator-keys="mdChipsSeparator"
+    secondary-placeholder="Comma separated tags">
+    </md-chips>
+
+  </md-content>
+  <div class="md-dialog-actions" class="float-right">
+    <md-button ng-click="setNotesTagsForDoc(result,'showInPopup')" class="md-raised md-primary md-button md-ink-ripple"> Save</md-button>
+  </div>
+</md-dialog>

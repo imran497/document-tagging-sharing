@@ -1,0 +1,32 @@
+<md-dialog aria-label="Cart Documents" ng-cloak flex="50">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+        <h2>Documents in cart:</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="closeDialog()">
+           <i class="dialog-close material-icons">clear</i>
+        </md-button>
+    </div>
+  </md-toolbar>
+    <br />
+    
+    <md-content>
+      <div ng-if="CartDocObj.length != 0 ">
+        <ul ng-repeat="item in CartDocObj track by $index">
+         <li>
+            <a href="{{item}}">{{item}}</a>
+            <md-button class="md-icon-button" ng-click="clearCartItem(item)">
+             <i class="dialog-close material-icons">clear</i>
+          </md-button>
+         </li>
+       </ul>
+      </div>
+      <div ng-if="CartDocObj.length == 0 ">
+        <p>No Items in cart!</p>
+      </div>
+    </md-content>
+    <div ng-if="CartDocObj.length != 0 " class="md-dialog-actions" class="float-right" style="align-self:center;">
+        <md-button target="_blank" href="{{mailToDocsLink}}" class="md-raised md-button md-ink-ripple"> Email Document Links</md-button>
+        <md-button href="" ng-click="clearCartItem('all')" class="md-raised md-button md-ink-ripple"> Clear Cart</md-button>
+    </div>
+</md-dialog>
